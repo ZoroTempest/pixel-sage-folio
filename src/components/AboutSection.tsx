@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Code, Database, Brain, Zap } from 'lucide-react';
+import workspaceBg from '@/assets/workspace-bg.jpg';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,8 +50,18 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-20 px-6 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={workspaceBg} 
+          alt="Development workspace background" 
+          className="w-full h-full object-cover opacity-5 blur-sm"
+        />
+        <div className="absolute inset-0 bg-background/95"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>

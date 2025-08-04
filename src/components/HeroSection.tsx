@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
+import colorfulCodeBg from '@/assets/colorful-code-bg.jpg';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,9 +20,9 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img 
-          src={heroBackground} 
-          alt="Hero background" 
-          className="w-full h-full object-cover opacity-30"
+          src={colorfulCodeBg} 
+          alt="Colorful code background" 
+          className="w-full h-full object-cover opacity-15 blur-sm"
         />
         <div className="absolute inset-0 gradient-hero"></div>
       </div>

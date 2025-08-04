@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink, Database, Brain, Code, Zap } from 'lucide-react';
+import codeMonitorBg from '@/assets/code-monitor-bg.jpg';
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -63,8 +64,18 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-20 px-6 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={codeMonitorBg} 
+          alt="Code on monitor background" 
+          className="w-full h-full object-cover opacity-5 blur-sm"
+        />
+        <div className="absolute inset-0 bg-background/95"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
