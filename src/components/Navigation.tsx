@@ -61,7 +61,7 @@ const Navigation = () => {
               <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">&lt;/&gt;</span>
               </div>
-              <span className="text-xl font-bold text-gradient">DevPortfolio</span>
+              <span className="text-xl font-bold text-gradient">Justin.Dev</span>
             </div>
 
             {/* Desktop Menu */}
