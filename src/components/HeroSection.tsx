@@ -80,24 +80,22 @@ const HeroSection = () => {
           </div>
 
           <div className="flex justify-center space-x-6">
+          <a 
+            href="https://linkedin.com/in/justin-bulot" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
+          >
+            <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
+          </a>
+
             <a 
-              href="#" 
-              className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
-            >
-              <Github className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
-            </a>
-            <a 
-              href="#" 
-              className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
-            >
-              <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
-            </a>
-            <a 
-              href="#" 
+              href="mailto:justinbulot@outlook.com" 
               className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
             >
               <Mail className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
             </a>
+
           </div>
         </div>
       </div>

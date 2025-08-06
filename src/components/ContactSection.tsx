@@ -4,8 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { Download } from "lucide-react";
 
 
 
@@ -137,7 +138,6 @@ const ContactSection = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/justin-bulot", label: "LinkedIn" },
   ];
 
@@ -153,9 +153,9 @@ const ContactSection = () => {
               Get In <span className="text-gradient">Touch</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Ready to bring your ideas to life? Let's discuss how we can create 
-              something amazing together. I'm always open to new opportunities and 
-              exciting challenges.
+              Got an idea? Let’s turn it into something that looks great, works flawlessly, and makes people say, “Who built this?” (Spoiler: us.)
+              I’m always open to new gigs, cool projects, and ambitious goals. 
+              Let’s build brilliance together. 
             </p>
           </div>
 
@@ -306,28 +306,47 @@ const ContactSection = () => {
                 </CardContent>
               </Card>
 
-              {/* Social Links */}
-              <Card className="gradient-card border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-xl">Follow Me</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex space-x-4">
-                    {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
-                      aria-label={social.label}
-                    >
-                      <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
-                    </a>
-                  ))}
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Social Link */}
+              <div className="flex flex-col md:flex-row gap-4">
+                {/* LinkedIn Card */}
+                <Card className="gradient-card border-primary/20 flex-1">
+                  <CardHeader>
+                    <CardTitle className="text-xl">LinkedIn</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex">
+                      <a
+                        href="https://linkedin.com/in/justin-bulot"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Resume Card */}
+                <Card className="gradient-card border-primary/20 flex-1">
+                  <CardHeader>
+                    <CardTitle className="text-xl">Resume</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                  <a
+                    href="src\assets\docs\Justin_Bulot_Resume.pdf"
+                    download
+                    className="group inline-flex items-center gap-2 px-4 py-2 rounded-md border border-primary/30 text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary hover:shadow-glow transition-smooth hover:scale-105"
+                  >
+                    <Download className="w-4 h-4 group-hover:text-primary transition-smooth" />
+                    <span>Download Resume</span>
+                  </a>
+
+                  </CardContent>
+                </Card>
+              </div>
+
 
               {/* Availability */}
               <Card className="gradient-card border-primary/20">

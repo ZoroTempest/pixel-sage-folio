@@ -146,7 +146,7 @@ const ChatBot = () => {
                 <span className="text-xs text-muted-foreground">Online</span>
                 <Badge variant="outline" className="text-xs border-primary/40 text-primary">
                   <Zap className="w-3 h-3 mr-1" />
-                  FAISS Powered
+                  AI-Powered
                 </Badge>
               </div>
             </div>

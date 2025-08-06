@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Code, Database, Brain, Zap } from 'lucide-react';
 import workspaceBg from '@/assets/workspace-bg.jpg';
+import JustinImage from '@/assets/Justin.png'; 
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,32 +23,33 @@ const AboutSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const skills = [
-    {
-      icon: Code,
-      title: "Frontend Development",
-      description: "React, TypeScript, Tailwind CSS, Next.js with focus on performance and accessibility",
-      technologies: ["React", "TypeScript", "Tailwind", "Next.js"]
-    },
-    {
-      icon: Database,
-      title: "Backend & Databases",
-      description: "Django, FastAPI, PostgreSQL, Redis with scalable architecture patterns",
-      technologies: ["Django", "FastAPI", "PostgreSQL", "Redis"]
-    },
-    {
-      icon: Brain,
-      title: "AI & Machine Learning",
-      description: "FAISS, ChromaDB, LLM integration, vector embeddings for intelligent applications",
-      technologies: ["FAISS", "ChromaDB", "OpenAI", "LangChain"]
-    },
-    {
-      icon: Zap,
-      title: "DevOps & Performance",
-      description: "Docker, AWS, CI/CD, performance optimization and monitoring",
-      technologies: ["Docker", "AWS", "CI/CD", "Monitoring"]
-    }
-  ];
+const skills = [
+  {
+    icon: Code,
+    title: "Frontend Development",
+    description: "Clean UI/UX with Tailwind CSS, React, and responsive design for modern, performant web apps.",
+    technologies: ["Tailwind CSS", "React", "Responsive UI", "UI/UX"]
+  },
+  {
+    icon: Database,
+    title: "Backend & Architecture",
+    description: "Robust APIs and business logic using Django and Flask, with solid Python and Java foundations.",
+    technologies: ["Django", "Flask", "Python", "Java"]
+  },
+  {
+    icon: Brain,
+    title: "AI & Intelligent Systems",
+    description: "AI Developer experience with ML integrations, LLMs, and transforming complex logic into smart assistants.",
+    technologies: ["AI", "LLMs", "ML Integration", "Internship at RELX"]
+  },
+  {
+    icon: Zap,
+    title: "Systems & Networking",
+    description: "Certified in networking fundamentals, with experience in system performance, optimization, and DevOps basics.",
+    technologies: ["Networking", "Certifications", "Optimization", "Scalability"]
+  }
+];
+
 
   return (
     <section id="about" className="py-20 px-6 relative overflow-hidden">
@@ -65,17 +67,36 @@ const AboutSection = () => {
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="text-gradient">Me</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              I'm a passionate full-stack developer specializing in creating intelligent web applications 
-              that bridge the gap between cutting-edge AI technology and exceptional user experience. 
-              My expertise spans from crafting beautiful interfaces to building robust backend systems 
-              powered by machine learning.
-            </p>
-          </div>
+
+
+
+
+<div className="flex flex-col md:flex-row items-center gap-8 mb-16 text-center md:text-left">
+  {/* Image Container */}
+  <div className="flex-shrink-0">
+    <img
+      src={JustinImage}
+      alt="Justin"
+      className="w-60 h-60 md:w-80 md:h-80 rounded-full object-cover shadow-lg border-4 border-primary/30"
+    />
+  </div>
+
+  {/* Text Content */}
+  <div className="flex-1">
+    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      About <span className="text-gradient">Me</span>
+    </h2>
+    <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">
+      I’m a Software Developer with a strong foundation in full-stack development, specializing in building fast, responsive, and user-centric web applications.
+      My expertise lies in Django, Flask, and Tailwind CSS, with the ability to integrate machine learning components when needed.
+      At Reed Elsevier PH, I worked as an AI Developer Intern, transforming complex requirements into seamless, user-friendly digital solutions.
+      I emphasize clean UI/UX design and system performance.
+      With certifications in Python, Java, and networking fundamentals, I bring technical depth and clear communication to every project.
+      My focus is on delivering scalable, maintainable solutions aligned with real business goals.
+    </p>
+  </div>
+</div>
+
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
@@ -118,10 +139,9 @@ const AboutSection = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-4 text-gradient">My Approach</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  I believe in building applications that not only solve real problems but also 
-                  delight users with intuitive interfaces and intelligent features. Every project 
-                  I work on combines technical excellence with thoughtful design, ensuring scalable, 
-                  maintainable, and user-focused solutions.
+                  I like building solutions that work smoothly and look clean—whether it’s a web interface, an AI-powered feature, or a system that tackles real challenges.
+                  I’ve explored a variety of tools and technologies, and I’m always experimenting with new ones to sharpen my workflow.
+                  At the core, my goal is to create experiences that feel intuitive and genuinely useful to the people who interact with them.
                 </p>
               </CardContent>
             </Card>
