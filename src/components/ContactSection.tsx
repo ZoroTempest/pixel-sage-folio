@@ -4,11 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Phone, MapPin, Send, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, Download } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-import { Download } from "lucide-react";
-
-
 
 interface ContactItemProps {
   icon: React.ComponentType<any>;
@@ -69,9 +66,6 @@ const ContactItem = ({ icon: Icon, title, value, link }: ContactItemProps) => {
   );
 };
 
-
-
-
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -98,14 +92,38 @@ const ContactSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  // ✅ Updated to send to Google Form
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    const googleFormUrl =
+      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSet5RKTfbJRuPrYpPNyFx98PiR3Cv2DYSsaHrlnL1lxFnoRKQ/formResponse";
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("entry.1520522171", formData.name);    // Full Name
+    formDataToSend.append("entry.1935020890", formData.email);   // Email
+    formDataToSend.append("entry.414368879", formData.subject);  // Subject
+    formDataToSend.append("entry.834736100", formData.message);  // Message
+
+    fetch(googleFormUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: formDataToSend,
+    })
+      .then(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again later.",
+          variant: "destructive",
+        });
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -115,7 +133,6 @@ const ContactSection = () => {
     });
   };
 
-  
   const contactInfo = [
     {
       icon: Mail,
@@ -143,11 +160,8 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 px-6 relative overflow-hidden">
-   
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 transform ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
+        <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Get In <span className="text-gradient">Touch</span>
@@ -241,7 +255,6 @@ const ContactSection = () => {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              {/* Contact Details */}
               <Card className="gradient-card border-primary/20">
                 <CardHeader>
                   <CardTitle className="text-xl">Contact Information</CardTitle>
@@ -306,9 +319,7 @@ const ContactSection = () => {
                 </CardContent>
               </Card>
 
-              {/* Social Link */}
               <div className="flex flex-col md:flex-row gap-4">
-                {/* LinkedIn Card */}
                 <Card className="gradient-card border-primary/20 flex-1">
                   <CardHeader>
                     <CardTitle className="text-xl">LinkedIn</CardTitle>
@@ -316,7 +327,7 @@ const ContactSection = () => {
                   <CardContent>
                     <div className="flex">
                       <a
-                        href="https://linkedin.com/in/justin-bulot"
+                        href="https://www.linkedin.com/in/justin-bulot-0765b7334/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
@@ -328,27 +339,23 @@ const ContactSection = () => {
                   </CardContent>
                 </Card>
 
-                {/* Resume Card */}
                 <Card className="gradient-card border-primary/20 flex-1">
                   <CardHeader>
                     <CardTitle className="text-xl">Resume</CardTitle>
                   </CardHeader>
                   <CardContent>
-                  <a
-                    href="src\assets\docs\Justin_Bulot_Resume.pdf"
-                    download
-                    className="group inline-flex items-center gap-2 px-4 py-2 rounded-md border border-primary/30 text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary hover:shadow-glow transition-smooth hover:scale-105"
-                  >
-                    <Download className="w-4 h-4 group-hover:text-primary transition-smooth" />
-                    <span>Download Resume</span>
-                  </a>
-
+                    <a
+                      href="src/assets/docs/Justin_Bulot_Resume.pdf"
+                      download
+                      className="group inline-flex items-center gap-2 px-4 py-2 rounded-md border border-primary/30 text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary hover:shadow-glow transition-smooth hover:scale-105"
+                    >
+                      <Download className="w-4 h-4 group-hover:text-primary transition-smooth" />
+                      <span>Download Resume</span>
+                    </a>
                   </CardContent>
                 </Card>
               </div>
 
-
-              {/* Availability */}
               <Card className="gradient-card border-primary/20">
                 <CardContent className="p-6">
                   <div className="text-center">

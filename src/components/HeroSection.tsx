@@ -56,8 +56,8 @@ const HeroSection = () => {
           
           <div className="floating">
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Crafting intelligent web applications with modern AI integration, 
-              clean architecture, and stunning user experiences.
+            Crafting intelligent web applications powered by modern AI with 
+            clean architecture and stunning user experiences that drive engagement and deliver results.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ const HeroSection = () => {
 
           <div className="flex justify-center space-x-6">
           <a 
-            href="https://linkedin.com/in/justin-bulot" 
+            href="https://www.linkedin.com/in/justin-bulot-0765b7334/" 
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"

@@ -54,31 +54,80 @@ const ChatBot = () => {
     }, 1000 + Math.random() * 2000);
   };
 
-  const generateResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase();
-    
-    if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
-      return "I can tell you about several impressive projects! There's the AI-Powered Knowledge Assistant using FAISS and ChromaDB, a Microservices E-commerce Platform, a Real-time Collaboration Tool, and a Performance Analytics Dashboard. Each showcases different aspects of full-stack development and AI integration. Which one interests you most?";
-    }
-    
-    if (lowerMessage.includes('skill') || lowerMessage.includes('technology')) {
-      return "The developer specializes in modern web technologies including React, TypeScript, Django, FastAPI, PostgreSQL, and Redis. They're particularly skilled in AI integration using FAISS, ChromaDB, and LLM technologies. Their expertise spans from frontend development to backend architecture and DevOps practices.";
-    }
-    
-    if (lowerMessage.includes('ai') || lowerMessage.includes('machine learning')) {
-      return "AI and machine learning are core strengths! The developer works with vector embeddings using FAISS, semantic search with ChromaDB, LLM integration for intelligent responses, and has experience with TensorFlow for predictive analytics. They focus on practical AI applications that enhance user experience.";
-    }
-    
-    if (lowerMessage.includes('contact') || lowerMessage.includes('hire')) {
-      return "Great! The developer is currently available for new projects. You can reach out through the contact form on this portfolio, or connect via email, LinkedIn, or GitHub. They're particularly interested in projects involving AI integration, full-stack development, and innovative web applications.";
-    }
-    
-    if (lowerMessage.includes('experience') || lowerMessage.includes('background')) {
-      return "With extensive experience in full-stack development, the developer has worked on everything from enterprise e-commerce platforms to cutting-edge AI applications. They specialize in creating scalable, maintainable solutions that combine technical excellence with exceptional user experience.";
-    }
-    
-    return "That's an interesting question! I can help you learn about the developer's projects, technical skills, AI expertise, or how to get in touch. What would you like to know more about?";
-  };
+
+const generateResponse = (userMessage: string): string => {
+  const lowerMessage = userMessage.toLowerCase();
+
+  if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
+    return `💼 Highlighted Projects:
+- LTMS Website Project — Internal system with dashboards, user auth, and admin controls. (PHP, MySQL, XAMPP)
+- AI-Powered Knowledge Assistant — Uses FAISS, ChromaDB, and LLM APIs for semantic search.
+- Django UI Tool — Clean, responsive UI for internal tools.
+- Secure Role-Based System — Custom ChromaDB login with role access.
+- AI-Powered File Processor — Upload, transcribe, detect issues, suggest AI solutions.
+
+Which one would you like to explore?`;
+  }
+
+  if (lowerMessage.includes('skill') || lowerMessage.includes('technology')) {
+    return `🛠 Technical Skills:
+- Web Development: React, TypeScript, Django, FastAPI
+- Databases: PostgreSQL, MySQL, SQL Server, Redis
+- AI Integration: FAISS, ChromaDB, LLM APIs
+- UI/UX: Tailwind CSS, responsive design principles
+- DevOps: Netlify, Docker, deployment best practices`;
+  }
+
+  if (lowerMessage.includes('ai') || lowerMessage.includes('machine learning')) {
+    return `🤖 AI Expertise:
+- Vector embeddings with FAISS
+- Semantic search using ChromaDB
+- LLM integration for intelligent responses
+- Predictive analytics with TensorFlow
+- Focus on AI that enhances user experience`;
+  }
+
+  if (lowerMessage.includes('contact') || lowerMessage.includes('hire')) {
+    return `📇 Contact Information:
+- Email: justinbulot@outlook.com
+- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/justin-bulot-0765b7334/)
+- Phone/WhatsApp: (+63) 975 079 0488
+
+📌 Process:
+1. Discovery Call
+2. Proposal
+3. Development
+4. Success 🚀`;
+  }
+
+  if (lowerMessage.includes('experience') || lowerMessage.includes('background')) {
+    return `📜 Experience & Background:
+- 7-month AI Developer Internship at RELX Reed Elsevier
+- Degree in Computer Science, specializing in Software Engineering
+- Experience as Group Lead, Full Stack Developer, and Lead UI Developer
+- Passion for AI, software innovation, and practical integrations`;
+  }
+
+  if (lowerMessage.includes('about') || lowerMessage.includes('bio')) {
+    return `👋 About Me:
+I’m like a sponge—constantly soaking up knowledge, adaptable, and always ready to learn something new.  
+Fueled by coffee ☕, I can grind through projects fast while making smart use of tools.  
+Outside coding, I sing, play sports, and value work-life balance. I want to stay fit and healthy while delivering results.  
+I’m deeply curious about AI and how we can integrate it into daily life to make it easier, more productive, and a bit more fun.`;
+  }
+
+  return `That's an interesting question!  
+I can tell you more about:
+- My projects
+- Technical skills
+- AI expertise
+- Experience & background
+- How to get in touch  
+
+What would you like to know more about?`;
+};
+ 
+
 
   const handleSendMessage = async () => {
     if (!message.trim()) return;
@@ -254,3 +303,4 @@ const ChatBot = () => {
 };
 
 export default ChatBot;
+
