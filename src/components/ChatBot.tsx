@@ -30,6 +30,7 @@ const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [message, setMessage] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -46,8 +47,33 @@ const ChatBot = () => {
   };
 
   useEffect(() => {
-    scrollToBottom();
+  scrollToBottom();
+
+    // Always visible on mobile
+    if (window.innerWidth < 768) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // stop checking once visible
+        }
+      },
+      {
+        threshold: 0.1, // trigger earlier
+        rootMargin: "0px 0px -50px 0px", // preload visibility before fully on screen
+      }
+    );
+
+    const section = document.getElementById("about");
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
   }, [messages]);
+
 
   const simulateTyping = () => {
     setIsTyping(true);
