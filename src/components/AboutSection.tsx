@@ -14,7 +14,6 @@ const AboutSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
     );
 
     const section = document.getElementById('about');
