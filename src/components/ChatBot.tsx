@@ -313,9 +313,14 @@ Which would you like to explore?`;
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <Card className={`w-96 h-96 gradient-card border-primary/20 shadow-elegant transition-all duration-300 ${
-        isMinimized ? 'h-16' : 'h-96'
-      }`}>
+      <Card
+        className={`
+          w-[90vw] h-[70vh]       /* Mobile size */
+          sm:w-96 sm:h-96         /* Tablet & desktop size */
+          gradient-card border-primary/20 shadow-elegant transition-all duration-300
+          ${isMinimized ? 'h-16 sm:h-16' : 'h-[70vh] sm:h-96'}
+        `}
+      >
         <CardHeader className="flex flex-row items-center justify-between p-4 border-b border-primary/20">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
