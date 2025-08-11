@@ -26,7 +26,8 @@ const HeroSection = () => {
         />
         <div className="absolute inset-0 gradient-hero"></div>
       </div>
-
+        {/* 💡 Discord Gradient Layer */}
+      <div className="discord-gradient"></div>
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="grid grid-cols-12 gap-4 h-full animate-pulse">

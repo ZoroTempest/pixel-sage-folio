@@ -176,3 +176,22 @@ All colors MUST be HSL.
     animation: pulse-glow 2s ease-in-out infinite;
   }
 }
+
+
+.discord-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(-45deg, #6366f1, #9333ea, #14b8a6, #06b6d4);
+  background-size: 400% 400%;
+  animation: backgroundFlow 15s ease infinite;
+  opacity: 0.2;
+  filter: blur(80px);
+}
+
+@keyframes backgroundFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

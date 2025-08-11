@@ -38,7 +38,7 @@
         title: "AI-Powered Knowledge Assistant",
         description: "A custom Django app delivering intelligent recommendations using FAISS, semantic search, and LLM endpoints secured via API keys.",
         icon: Brain,
-        technologies: ["Django", "FAISS", "ChromaDB", "LLM APIs", "SQL Server"],
+        technologies: ["Django", "FAISS", "LLM APIs", "SQL Server"],
         features: ["Semantic Search", "LLM Integration", "Fast Similarity Matching"],
         status: "Full Stack Developer",
         gradient: "from-emerald-500 to-teal-600"
@@ -63,7 +63,7 @@
       },
       {
         title: "AI-Powered File Processor",
-        description: "Developed a Django tool that uploads files, transcribes content, detects issues, and suggests AI-powered solutions.",
+        description: "Contributed in building a Django tool that uploads files, transcribes content, detects issues, and suggests AI-powered solutions.",
         icon: Code,
         technologies: ["Django", "AI APIs"],
         features: ["File Upload", "Transcription", "Issue Detection", "AI Suggestions"],

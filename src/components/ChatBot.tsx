@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
+import ReactMarkdown from 'react-markdown';
+
 import { 
   MessageCircle, 
   Send, 
@@ -56,77 +58,182 @@ const ChatBot = () => {
 
 
 const generateResponse = (userMessage: string): string => {
-  const lowerMessage = userMessage.toLowerCase();
+  const lowerMessage = userMessage.toLowerCase().trim();
 
-  if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
-    return `💼 Highlighted Projects:
-- LTMS Website Project — Internal system with dashboards, user auth, and admin controls. (PHP, MySQL, XAMPP)
-- AI-Powered Knowledge Assistant — Uses FAISS, ChromaDB, and LLM APIs for semantic search.
-- Django UI Tool — Clean, responsive UI for internal tools.
-- Secure Role-Based System — Custom ChromaDB login with role access.
-- AI-Powered File Processor — Upload, transcribe, detect issues, suggest AI solutions.
+  // Helper to match whole words or close phrases
+  const match = (patterns: string[]) =>
+    patterns.some(p => new RegExp(`\\b${p}\\b`, "i").test(lowerMessage));
 
-Which one would you like to explore?`;
+
+  if (match(['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening'])) {
+  return `👋 Hey there!  
+I’m **Justin’s AI Assistant** 🤖 — here to answer your questions about Justin Bulot’s projects, skills, and experience.  
+
+You can ask me things like:  
+- “Show me your projects”  
+- “What are your skills?”  
+- “Tell me about your AI work”  
+- “How can I contact you?”  
+
+What would you like to know first?`;
   }
 
-  if (lowerMessage.includes('skill') || lowerMessage.includes('technology')) {
-    return `🛠 Technical Skills:
-- Web Development: React, TypeScript, Django, FastAPI
-- Databases: PostgreSQL, MySQL, SQL Server, Redis
-- AI Integration: FAISS, ChromaDB, LLM APIs
-- UI/UX: Tailwind CSS, responsive design principles
-- DevOps: Netlify, Docker, deployment best practices`;
-  }
+  if (match(['project', 'projects', 'work', 'portfolio', 'portfolio work', 'past work', 'case study', 'case studies'])) {
+    return `💼 **Highlighted Projects**  
+Here’s a glimpse of some work I’ve been involved in:
 
-  if (lowerMessage.includes('ai') || lowerMessage.includes('machine learning')) {
-    return `🤖 AI Expertise:
-- Vector embeddings with FAISS
-- Semantic search using ChromaDB
-- LLM integration for intelligent responses
-- Predictive analytics with TensorFlow
-- Focus on AI that enhances user experience`;
-  }
+1. **LTMS Website Project** — Internal system with dashboards, user authentication, and admin controls.  
+   _Stack:_ PHP, MySQL, XAMPP  
 
-  if (lowerMessage.includes('contact') || lowerMessage.includes('hire')) {
-    return `📇 Contact Information:
-- Email: justinbulot@outlook.com
-- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/justin-bulot-0765b7334/)
-- Phone/WhatsApp: (+63) 975 079 0488
-
-📌 Process:
-1. Discovery Call
-2. Proposal
-3. Development
-4. Success 🚀`;
-  }
-
-  if (lowerMessage.includes('experience') || lowerMessage.includes('background')) {
-    return `📜 Experience & Background:
-- 7-month AI Developer Internship at RELX Reed Elsevier
-- Degree in Computer Science, specializing in Software Engineering
-- Experience as Group Lead, Full Stack Developer, and Lead UI Developer
-- Passion for AI, software innovation, and practical integrations`;
-  }
-
-  if (lowerMessage.includes('about') || lowerMessage.includes('bio')) {
-    return `👋 About Me:
-I’m like a sponge—constantly soaking up knowledge, adaptable, and always ready to learn something new.  
-Fueled by coffee ☕, I can grind through projects fast while making smart use of tools.  
-Outside coding, I sing, play sports, and value work-life balance. I want to stay fit and healthy while delivering results.  
-I’m deeply curious about AI and how we can integrate it into daily life to make it easier, more productive, and a bit more fun.`;
-  }
-
-  return `That's an interesting question!  
-I can tell you more about:
-- My projects
-- Technical skills
-- AI expertise
-- Experience & background
-- How to get in touch  
-
-What would you like to know more about?`;
-};
+2. **AI-Powered Knowledge Assistant** — A custom Django app delivering fast, context-aware answers using semantic search with FAISS, LLM APIs, and similarity matching. Secured with API keys for safe integration and intelligent recommendations.
  
+3. **Django UI Tool** — Designed a clean, responsive UI for internal tools.  
+
+4. **Secure Role-Based System** — Custom ChromaDB login with dynamic role-based access control.  
+
+5. **AI-Powered File Processor** — Upload files, transcribe content, detect issues, and suggest AI-driven solutions.  
+
+💡 Want me to tell you more about **the tech behind them**, or **what challenges I solved**? Feel free to leave a message`;
+  }
+
+  if (match(['skill', 'skills', 'technology', 'technologies', 'stack', 'tech stack', 'technical ability', 'core skills'])) {
+    return `🛠 **Technical Skills**  
+Here's my current toolkit:
+
+- **Web Development:** React, TypeScript, Django, FastAPI  
+- **Databases:** Firebase, MySQL, SQL Server  
+- **AI Integration:** FAISS, ChromaDB, LLM APIs (OpenAI, local models)  
+- **UI/UX:** Tailwind CSS, responsive design, accessibility best practices  
+- **DevOps:** Netlify, Docker, CI/CD, deployment optimization  
+
+💬 I can also talk about **how I choose tech stacks** depending on project needs and different use cases.`;
+  }
+
+  if (match(['ai', 'machine learning', 'artificial intelligence', 'deep learning', 'neural network', 'llm', 'openai'])) {
+    return `🤖 **AI Expertise**  
+My focus is on **practical AI** that solves real problems:
+
+- Vector embeddings with **FAISS** for fast semantic search  
+- **ChromaDB** for persistent AI memory and context recall  
+- Integrating **LLMs** for intelligent, conversational interfaces  
+- Special interest in AI that **augments human decision-making**  
+
+📌 Curious about my **AI project examples** or **how I fine-tune prompts**?`;
+  }
+
+  if (match(['contact', 'hire', 'reach you', 'get in touch', 'connect', 'email', 'phone'])) {
+    return `📇 **Contact Information**  
+Here’s how to reach me directly:
+
+- 📧 Email: justinbulot@outlook.com  
+- 💼 LinkedIn: [Justin Bulot](https://www.linkedin.com/in/justin-bulot-0765b7334/)  
+- 📱 Phone: (+63) 975 079 0488  
+
+📌 **Collaboration Process**  
+1. **Discovery Call** — Understand your needs  
+2. **Proposal** — Plan the scope, timeline, and budget  
+3. **Development** — Iterative, transparent progress updates  
+4. **Launch & Support** 
+
+What else do you want to know about Justin?`;
+  }
+
+  if (match(['experience','experiences', 'background', 'career', 'work history', 'journey', 'professional history'])) {
+    return `📜 **Experience & Background**  
+
+- **AI Developer Intern** — RELX Reed Elsevier (7 months)  
+  Worked on AI-based document search, data pipelines, and automation tools.  
+
+- **Full Stack & UI Development** — Group Lead for multiple academic and freelance projects.  
+
+- **Academic Leadership** — Guided teams through complex web app builds, focusing on maintainability and scalability.  
+
+- **Passions** — AI-driven systems, automation, and software that solves practical problems.  
+
+Would you like me to share **my most challenging project** and how I solved it? Feel free to message me`;
+  }
+
+  if (match(['about yourself', 'bio', 'yourself', 'who is justin', 'introduce', 'about you', 'Justin Bulot'])) {
+    return `👋 **About Me**  
+I’m a knowledge sponge — always learning, adapting, and improving.  
+Fueled by coffee ☕ and curiosity, I work fast but never at the cost of quality.  
+
+Outside of coding:  
+- 🎤 I sing and enjoy music  
+- 🏀 Play sports to stay fit  
+- 🧠 Constantly explore new AI tools and emerging tech trends  
+
+My mission? To integrate AI into everyday tools so they’re **simpler, smarter, and more fun** to use.`;
+  }
+
+  if (match(['education', 'school', 'study', 'degree', 'college', 'university'])) {
+    return `🎓 **Education**  
+- **B.S. in Computer Science** — Specialization in Software Engineering  
+- Focus areas: AI development, system design, web technologies  
+- Projects blended **academic theory with real-world client needs**  
+- Continued self-learning through online AI/ML courses and hackathons`;
+  }
+
+
+
+  if (match(['hobby', 'hobbies', 'free time', 'fun', 'interest', 'passion'])) {
+    return `🎯 **Outside Work**  
+Things I enjoy when I’m not coding:  
+- Singing 🎤  
+- Playing basketball 🏀 and other sports  
+- Exploring the latest AI tools and APIs  
+- Coffee meetups ☕  
+- Fitness & mindfulness routines 🏋️‍♂️🧘‍♂️`;
+  }
+
+  if (match(['name', 'who are you', 'your name', 'what should i call you', 'assistant name'])) {
+    return `📛 You can call me **Justin's AI Assistant** 🤖.  
+I’m here to answer your questions about **Justin Bulot** — his projects, skills, experience, and journey.  
+Think of me as his digital spokesperson, available 24/7.`;
+  }
+
+  if (match(['availability', 'free', 'available', 'when can we talk', 'schedule'])) {
+    return `📅 **Availability**  
+Justin is generally available:  
+- Weekday evenings (GMT+8)  
+- Flexible on weekends for calls or meetings  
+
+We can coordinate a time that works best for you!  
+If you are interested in Justin's Availability, feel free to **leave him a message!**`;
+  }
+
+  if (match(['future goals', 'plans', 'ambition', 'where do you see yourself'])) {
+    return `🚀 **Future Goals**  
+- Continue integrating AI into everyday tools  
+- Lead innovative software projects that make a measurable impact  
+- Explore **AI + IoT** for smarter, more connected environments  
+- Contribute to open-source AI tools and frameworks`;
+  }
+
+
+
+  return `💬 That’s interesting!  
+
+I can tell you more about:  
+- 📂 Projects  
+- 🛠 Skills  
+- 🤖 AI Expertise  
+- 🎓 Education  
+- 📜 Experience & Background  
+- 🎯 Hobbies & Interests  
+- 📅 Availability  
+- 📇 Contact Information  
+- 🚀 Future Goals  
+- 🏆 Achievements  
+
+💡 Maybe you can try asking me things like:  
+- "What projects have you worked on?"  
+- "What’s your AI experience?"  
+- "Tell me about your education"  
+- "How can I contact you?"  
+
+Which would you like to explore?`;
+};
 
 
   const handleSendMessage = async () => {
@@ -248,7 +355,18 @@ What would you like to know more about?`;
                           ? 'bg-primary text-primary-foreground'
                           : 'bg-secondary text-secondary-foreground border border-primary/20'
                       }`}>
-                        <p className="text-sm leading-relaxed">{msg.content}</p>
+                        <ReactMarkdown
+                          components={{
+                            p: ({ children }) => (
+                              <p className="text-sm leading-relaxed whitespace-pre-wrap">{children}</p>
+                            ),
+                            li: ({ children }) => (
+                              <li className="ml-4 list-disc">{children}</li>
+                            ),
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
                         <p className="text-xs opacity-70 mt-1">
                           {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </p>
