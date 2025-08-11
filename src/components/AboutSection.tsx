@@ -7,20 +7,33 @@ import JustinImage from '@/assets/Justin.png';
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-    );
+  // Instantly show on mobile for reliability
+  if (window.innerWidth < 768) {
+    setIsVisible(true);
+    return;
+  }
 
-    const section = document.getElementById('about');
-    if (section) observer.observe(section);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect(); // stop observing after first trigger
+      }
+    },
+    {
+      threshold: 0.1, // triggers earlier
+      rootMargin: "0px 0px -50px 0px", // expand bottom trigger zone
+    }
+  );
 
-    return () => observer.disconnect();
-  }, []);
+  const section = document.getElementById("about");
+  if (section) observer.observe(section);
+
+  return () => observer.disconnect();
+}, []);
+
 
 const skills = [
   {
