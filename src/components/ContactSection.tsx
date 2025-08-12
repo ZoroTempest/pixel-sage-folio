@@ -345,7 +345,7 @@ const ContactSection = () => {
                   </CardHeader>
                   <CardContent>
                     <a
-                      href="src/assets/docs/Justin_Bulot_Resume.pdf"
+                      href="Justin_Bulot_Resume.pdf"
                       download
                       className="group inline-flex items-center gap-2 px-4 py-2 rounded-md border border-primary/30 text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary hover:shadow-glow transition-smooth hover:scale-105"
                     >
