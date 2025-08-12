@@ -315,7 +315,7 @@ Which would you like to explore?`;
     <div className="fixed bottom-6 right-6 z-50">
       <Card
         className={`
-          w-[90vw] h-[70vh]       /* Mobile size */
+          w-[80vw] h-[70vh]       /* Mobile size */
           sm:w-96 sm:h-96         /* Tablet & desktop size */
           gradient-card border-primary/20 shadow-elegant transition-all duration-300
           ${isMinimized ? 'h-16 sm:h-16' : 'h-[70vh] sm:h-96'}
@@ -359,7 +359,7 @@ Which would you like to explore?`;
         </CardHeader>
 
         {!isMinimized && (
-          <CardContent className="p-0 flex flex-col h-80">
+          <CardContent className="p-0 flex flex-col h-[calc(70vh-4rem)] sm:h-80">
             <ScrollArea className="flex-1 p-4">
               <div className="space-y-4">
                 {messages.map((msg) => (
@@ -433,7 +433,7 @@ Which would you like to explore?`;
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask about projects, skills, or experience..."
-                  className="flex-1 bg-background/50 border-primary/20 focus:border-primary"
+                  className="w-[80%] sm:flex-1 bg-background/50 border-primary/20 focus:border-primary"
                 />
                 <Button
                   onClick={handleSendMessage}
