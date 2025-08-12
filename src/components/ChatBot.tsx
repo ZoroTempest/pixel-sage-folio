@@ -315,7 +315,7 @@ Which would you like to explore?`;
     <div className="fixed bottom-6 right-6 z-50">
       <Card
         className={`
-          w-[80vw] h-[70vh]       /* Mobile size */
+          w-[85vw] h-[70vh]       /* Mobile size */
           sm:w-96 sm:h-96         /* Tablet & desktop size */
           gradient-card border-primary/20 shadow-elegant transition-all duration-300
           ${isMinimized ? 'h-16 sm:h-16' : 'h-[70vh] sm:h-96'}
