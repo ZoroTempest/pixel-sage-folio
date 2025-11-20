@@ -8,20 +8,47 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
+  // Typing animation state
+  const [typedText, setTypedText] = useState('');
+  const fullText = 'BrowskieDevStudio';
+
+  useEffect(() => {
+  const typeLogo = () => {
+    let index = 0;
+    const typing = setInterval(() => {
+      setTypedText(fullText.slice(0, index));
+      index++;
+      if (index > fullText.length) clearInterval(typing);
+    }, 120);
+  };
+
+  // Start immediately
+  typeLogo();
+
+  // Repeat every 10 seconds
+  const repeat = setInterval(() => {
+    setTypedText(''); // reset
+    typeLogo();
+  }, 10000); // 10s
+
+  return () => clearInterval(repeat);
+}, []);
+
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
+
       const sections = ['home', 'about', 'projects', 'contact'];
       const scrollPos = window.scrollY + 100;
-      
+
       for (const section of sections) {
         const element = document.getElementById(section === 'home' ? 'hero' : section);
+
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetBottom = offsetTop + element.offsetHeight;
-          
+
           if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
             setActiveSection(section);
             break;
@@ -50,18 +77,44 @@ const Navigation = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/80 backdrop-blur-md border-b border-primary/20 shadow-elegant' 
-          : 'bg-transparent'
-      }`}>
+      <nav
+        className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-background/80 backdrop-blur-md border-b border-primary/20 shadow-elegant'
+            : 'bg-transparent'
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+            
+            {/* Logo with typing + subtle glow */}
+            <div
+              onClick={() => scrollToSection('home')}
+              className="flex items-center space-x-2 group cursor-pointer select-none"
+            >
+              <div
+                className="
+                  w-8 h-8 rounded-lg gradient-primary flex items-center justify-center 
+                  transition-all duration-300 
+                  group-hover:scale-110 group-hover:-translate-y-1 
+                  group-hover:shadow-[0_0_8px_rgba(99,102,241,0.3)]
+                "
+              >
                 <span className="text-primary-foreground font-bold text-sm">&lt;/&gt;</span>
               </div>
-              <span className="text-xl font-bold text-gradient">Justin.Dev</span>
+
+              <span
+                className="
+                  text-xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
+                  bg-clip-text text-transparent transition-all duration-300
+                  group-hover:tracking-wide group-hover:opacity-95
+                  relative
+                "
+              >
+                {typedText}
+                {/* cursor */}
+                <span className="inline-block w-[2px] h-5 bg-purple-400 ml-1 animate-pulse" />
+              </span>
             </div>
 
             {/* Desktop Menu */}
@@ -71,7 +124,9 @@ const Navigation = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`relative text-sm font-medium transition-smooth hover:text-primary ${
-                    activeSection === item.id ? 'text-primary' : 'text-muted-foreground'
+                    activeSection === item.id
+                      ? 'text-primary'
+                      : 'text-muted-foreground'
                   }`}
                 >
                   {item.label}
@@ -102,7 +157,10 @@ const Navigation = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-30 md:hidden">
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-md" onClick={() => setIsMobileMenuOpen(false)} />
+          <div
+            className="absolute inset-0 bg-background/80 backdrop-blur-md"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
           <div className="absolute top-20 left-6 right-6 gradient-card border border-primary/20 rounded-lg shadow-elegant">
             <div className="p-6 space-y-4">
               {navItems.map((item) => (
@@ -110,7 +168,9 @@ const Navigation = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`w-full flex items-center space-x-3 p-3 rounded-lg transition-smooth hover:bg-primary/10 ${
-                    activeSection === item.id ? 'bg-primary/20 text-primary' : 'text-muted-foreground'
+                    activeSection === item.id
+                      ? 'bg-primary/20 text-primary'
+                      : 'text-muted-foreground'
                   }`}
                 >
                   <item.icon className="w-5 h-5" />
@@ -130,8 +190,8 @@ const Navigation = () => {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`block w-3 h-3 rounded-full border-2 transition-smooth hover:scale-125 ${
-                activeSection === item.id 
-                  ? 'bg-primary border-primary shadow-glow' 
+                activeSection === item.id
+                  ? 'bg-primary border-primary shadow-glow'
                   : 'bg-transparent border-primary/40 hover:border-primary'
               }`}
               title={item.label}
