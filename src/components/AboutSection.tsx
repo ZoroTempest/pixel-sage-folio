@@ -82,16 +82,29 @@ const skills = [
 
 
 
-
 <div className="flex flex-col md:flex-row items-center gap-8 mb-16 text-center md:text-left">
   {/* Image Container */}
   <div className="flex-shrink-0">
-    <img
-      src={JustinImage}
-      alt="Justin"
-      className="w-60 h-60 md:w-80 md:h-80 rounded-full object-cover shadow-lg border-4 border-primary/30"
-    />
+    <div
+      className="
+        w-60 h-60 md:w-80 md:h-80
+        rounded-2xl
+        overflow-hidden
+        border-4 border-primary/30
+        shadow-lg
+      "
+    >
+      <img
+        src={JustinImage}
+        alt="Justin"
+        className="
+          w-full h-full 
+          object-cover
+        "
+      />
+    </div>
   </div>
+
 
   {/* Text Content */}
   <div className="flex-1">
@@ -164,4 +177,4 @@ const skills = [
   );
 };
 
-export default AboutSection;
+export default AboutSection; 
