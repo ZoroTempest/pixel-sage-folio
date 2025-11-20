@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Code, Database, Brain, Zap } from 'lucide-react';
 import workspaceBg from '@/assets/workspace-bg.jpg';
-import JustinImage from '@/assets/Justin.png'; 
+import JustinImage from '@/assets/Justin.jpg'; 
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
