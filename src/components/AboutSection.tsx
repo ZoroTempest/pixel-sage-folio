@@ -84,23 +84,14 @@ const skills = [
 
 <div className="flex flex-col md:flex-row items-center gap-8 mb-16 text-center md:text-left">
   {/* Image Container */}
-  <div className="flex-shrink-0">
+  <div className="flex-shrink-0 h-auto md:h-full">
     <div
-      className="
-        w-60 h-60 md:w-80 md:h-80
-        rounded-2xl
-        overflow-hidden
-        border-4 border-primary/30
-        shadow-lg
-      "
+      className="w-60 md:w-72 lg:w-80 h-full rounded-2xl overflow-hidden border-4 border-primary/30 shadow-lg"
     >
       <img
         src={JustinImage}
         alt="Justin"
-        className="
-          w-full h-full 
-          object-cover
-        "
+        className="w-full h-full object-cover"
       />
     </div>
   </div>
@@ -112,12 +103,11 @@ const skills = [
       About <span className="text-gradient">Me</span>
     </h2>
     <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">
-      I’m a Software Developer with a strong foundation in full-stack development, specializing in building fast, responsive, and user-centric web applications.
-      My expertise lies in Django, Flask, and Tailwind CSS, with the ability to integrate machine learning components when needed.
-      At Reed Elsevier PH, I worked as an AI Developer Intern, transforming complex requirements into seamless, user-friendly digital solutions.
-      I emphasize clean UI/UX design and system performance.
-      With certifications in Python, Java, and networking fundamentals, I bring technical depth and clear communication to every project.
-      My focus is on delivering scalable, maintainable solutions aligned with real business goals.
+      I’m a Full-Stack Web Developer passionate about building fast, responsive, and intelligent web applications. I specialize in Django, Flask, Tailwind CSS, and integrating AI/ML solutions, including Oracle Generative AI, to create user-centric, scalable, and high-performance digital experiences.<br /><br />
+
+      During my internship at Reed Elsevier PH as an AI Developer, I translated complex requirements into seamless, user-friendly solutions, delivering tools that combine clean UI/UX with robust functionality. My portfolio spans internal dashboards, AI-powered assistants, and responsive web platforms, including my personal portfolio website and client-facing projects like the Bukid Cafe website.<br /><br />
+
+      Certified in Python, Java, Networking Fundamentals, and Oracle Generative AI, I combine technical depth with clear communication and problem-solving skills. I thrive on turning ideas into scalable solutions that deliver real business value, whether collaborating with startups, enterprises, or freelance clients.<br /><br />
     </p>
   </div>
 </div>

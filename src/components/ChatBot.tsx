@@ -112,15 +112,23 @@ Here’s a glimpse of some work I’ve been involved in:
    _Stack:_ PHP, MySQL, XAMPP  
 
 2. **AI-Powered Knowledge Assistant** — A custom Django app delivering fast, context-aware answers using semantic search with FAISS, LLM APIs, and similarity matching. Secured with API keys for safe integration and intelligent recommendations.
- 
+
 3. **Django UI Tool** — Designed a clean, responsive UI for internal tools.  
 
 4. **Secure Role-Based System** — Custom ChromaDB login with dynamic role-based access control.  
 
 5. **AI-Powered File Processor** — Upload files, transcribe content, detect issues, and suggest AI-driven solutions.  
 
+6. **Portfolio Website** — My personal portfolio showcasing projects, experience, and skills with smooth animations and modern design.  
+   _Stack:_ React, TypeScript, Tailwind CSS, shadcn-ui, Vite  
+   _Live:_ [myportfoliojustinbulot.netlify.app](https://myportfoliojustinbulot.netlify.app/)
+
+7. **Coffee Shop Website** — Responsive website for a local coffee shop featuring menu, location, a simple spin-the-wheel game, and chatbot integration.  
+   _Stack:_ React, TypeScript, Tailwind CSS, shadcn-ui, Vite  
+   _Live:_ [bukidcafeph.com](https://bukidcafeph.com/)  
+
 💡 Want me to tell you more about **the tech behind them**, or **what challenges I solved**? Feel free to leave a message`;
-  }
+}
 
   if (match(['skill', 'skills', 'technology', 'technologies', 'stack', 'tech stack', 'technical ability', 'core skills'])) {
     return `🛠 **Technical Skills**  
