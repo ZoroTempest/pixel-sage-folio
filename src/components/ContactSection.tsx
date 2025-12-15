@@ -143,7 +143,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Phone",
-      value: "(+63) 975 079 0488",
+      value: "(+63) 956 816 7864",
       link: "tel:+639750790488"
     },
     {

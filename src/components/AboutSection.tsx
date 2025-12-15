@@ -1,144 +1,173 @@
 import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, Database, Brain, Zap } from 'lucide-react';
-import workspaceBg from '@/assets/workspace-bg.jpg';
-import JustinImage from '@/assets/Justin.jpg'; 
+import { Code, Database, Brain, Zap, Briefcase } from 'lucide-react';
+import JustinImage from '@/assets/Justin.jpg';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-
   useEffect(() => {
-  // Instantly show on mobile for reliability
-  if (window.innerWidth < 768) {
-    setIsVisible(true);
-    return;
-  }
+    if (window.innerWidth < 768) {
+      setIsVisible(true);
+      return;
+    }
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.disconnect(); // stop observing after first trigger
-      }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const section = document.getElementById('about');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const skills = [
+    {
+      icon: Briefcase,
+      title: 'Business Website Development',
+      description:
+        'End-to-end development of professional websites designed to support real business goals.',
+      technologies: ['Business Websites', 'CMS Platforms', 'SEO-Ready', 'Conversion-Focused'],
     },
     {
-      threshold: 0.1, // triggers earlier
-      rootMargin: "0px 0px -50px 0px", // expand bottom trigger zone
-    }
-  );
+      icon: Zap,
+      title: 'Frontend & UX',
+      description: 'Clean, responsive UI built for speed, usability, and customer trust.',
+      technologies: ['Tailwind CSS', 'React', 'Responsive Design', 'UI/UX'],
+    },
+    {
+      icon: Database,
+      title: 'Backend Systems',
+      description:
+        'Reliable backend logic and APIs that power bookings, forms, and admin dashboards.',
+      technologies: ['Django', 'Flask', 'Python'],
+    },
+    {
+      icon: Brain,
+      title: 'Automation & Smart Features',
+      description:
+        'Optional AI-powered features and automations that improve efficiency and user experience.',
+      technologies: ['AI Integrations', 'LLMs', 'Workflow Automation'],
+    },
+  ];
 
-  const section = document.getElementById("about");
-  if (section) observer.observe(section);
-
-  return () => observer.disconnect();
-}, []);
-
-
-const skills = [
-  {
-    icon: Code,
-    title: "Frontend Development",
-    description: "Clean UI/UX with Tailwind CSS, React, and responsive design for modern, performant web apps.",
-    technologies: ["Tailwind CSS", "React", "Responsive UI", "UI/UX"]
-  },
-  {
-    icon: Database,
-    title: "Backend & Architecture",
-    description: "Robust APIs and business logic using Django and Flask, with solid Python and Java foundations.",
-    technologies: ["Django", "Flask", "Python", "Java"]
-  },
-  {
-    icon: Brain,
-    title: "AI & Intelligent Systems",
-    description: "AI Developer experience with ML integrations, LLMs, and transforming complex logic into smart assistants.",
-    technologies: ["AI", "LLMs", "ML Integration", "Internship at RELX"]
-  },
-  {
-    icon: Zap,
-    title: "Systems & Networking",
-    description: "Certified in networking fundamentals, with experience in system performance, optimization, and DevOps basics.",
-    technologies: ["Networking", "Certifications", "Optimization", "Scalability"]
-  }
-];
-
+  const builds = [
+    {
+      title: 'Business Websites',
+      subtitle: 'Professional, conversion-focused presence',
+      description:
+        'Custom-built websites that establish credibility, communicate value clearly, and attract customers.',
+      highlights: ['Mobile-first', 'SEO-ready', 'Fast loading'],
+    },
+    {
+      title: 'E-Commerce Websites',
+      subtitle: 'Built to sell, easy to manage',
+      description:
+        'Conversion-focused online stores designed for smooth shopping, simple product management, and reliable performance.',
+      highlights: [
+        'Product & inventory management',
+        'Secure checkout',
+        'Mobile-optimized shopping',
+      ],
+    },
+    {
+      title: 'Booking & Inquiry Systems',
+      subtitle: 'Turn visitors into customers',
+      description:
+        'Integrated booking flows, inquiry forms, and admin dashboards that support daily operations.',
+      highlights: ['Custom logic', 'Admin dashboards', 'Email notifications'],
+    },
+    {
+      title: 'Internal Tools & Dashboards',
+      subtitle: 'Support real workflows',
+      description:
+        'Internal systems that help teams manage data, workflows, and reporting efficiently.',
+      highlights: ['Clean UI', 'Role-based access', 'Scalable backend'],
+    },
+    {
+      title: 'Automation & Smart Features',
+      subtitle: 'Reduce manual work',
+      description:
+        'Optional automations and intelligent features that improve efficiency where they add real value.',
+      highlights: ['Workflow automation', 'AI integrations', 'Custom logic'],
+    },
+  ];
 
   return (
-    <section id="about" className="py-20 px-6 relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img 
-          src={workspaceBg} 
-          alt="Development workspace background" 
-          className="w-full h-full object-cover opacity-5 blur-sm"
-        />
-        <div className="absolute inset-0 bg-background/95"></div>
-      </div>
-      
+    <section id="about" className="py-20 px-6 relative overflow-hidden bg-background">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 transform ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
+        <div
+          className={`transition-all duration-1000 transform ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
+          {/* ABOUT INTRO */}
+          <div className="flex flex-col md:flex-row items-center gap-10 mb-20 text-center md:text-left">
+            <div className="flex-shrink-0">
+              <div className="w-60 md:w-72 lg:w-80 rounded-2xl overflow-hidden border-4 border-primary/30 shadow-lg">
+                <img
+                  src={JustinImage}
+                  alt="Justin"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
+            <div className="flex-1">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                About <span className="text-gradient">Me</span>
+              </h2>
 
+              <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">
+                I’m a Business Website Developer helping small to medium businesses grow
+                through fast, modern, and high-performing websites. I prioritize quality,
+                performance, and long-term usability, designing websites as systems built
+                to scale, manage, and convert.
+                <br />
+                <br />
+                I work with Django, Flask, Tailwind CSS, and CMS platforms, choosing the
+                right tools based on business goals, budget, and future growth. My
+                background as an AI Developer Intern at Reed Elsevier PH shaped my approach
+                to building reliable, production-ready solutions.
+              </p>
+            </div>
+          </div>
 
-<div className="flex flex-col md:flex-row items-center gap-8 mb-16 text-center md:text-left">
-  {/* Image Container */}
-  <div className="flex-shrink-0 h-auto md:h-full">
-    <div
-      className="w-60 md:w-72 lg:w-80 h-full rounded-2xl overflow-hidden border-4 border-primary/30 shadow-lg"
-    >
-      <img
-        src={JustinImage}
-        alt="Justin"
-        className="w-full h-full object-cover"
-      />
-    </div>
-  </div>
-
-
-  {/* Text Content */}
-  <div className="flex-1">
-    <h2 className="text-4xl md:text-5xl font-bold mb-6">
-      About <span className="text-gradient">Me</span>
-    </h2>
-    <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">
-      I’m a Full-Stack Web Developer passionate about building fast, responsive, and intelligent web applications. I specialize in Django, Flask, Tailwind CSS, and integrating AI/ML solutions, including Oracle Generative AI, to create user-centric, scalable, and high-performance digital experiences.<br /><br />
-
-      During my internship at Reed Elsevier PH as an AI Developer, I translated complex requirements into seamless, user-friendly solutions, delivering tools that combine clean UI/UX with robust functionality. My portfolio spans internal dashboards, AI-powered assistants, and responsive web platforms, including my personal portfolio website and client-facing projects like the Bukid Cafe website.<br /><br />
-
-      Certified in Python, Java, Networking Fundamentals, and Oracle Generative AI, I combine technical depth with clear communication and problem-solving skills. I thrive on turning ideas into scalable solutions that deliver real business value, whether collaborating with startups, enterprises, or freelance clients.<br /><br />
-    </p>
-  </div>
-</div>
-
-
+          {/* SKILLS */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
-              <Card 
+              <Card
                 key={skill.title}
-                className={`gradient-card border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-elegant group ${
-                  isVisible ? 'animate-fade-in' : ''
-                }`}
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className={`
+                  gradient-card bg-background
+                  border border-primary/20
+                  transition-all duration-300
+                  hover:-translate-y-2 hover:shadow-xl
+                  dark:hover:shadow-black/40
+                  ${isVisible ? 'animate-fade-in' : ''}
+                `}
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <CardContent className="p-6 text-center">
-                  <div className="mb-4 relative">
-                    <div className="w-16 h-16 mx-auto rounded-full gradient-primary flex items-center justify-center group-hover:shadow-glow transition-smooth">
-                      <skill.icon className="w-8 h-8 text-primary-foreground" />
-                    </div>
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full gradient-primary flex items-center justify-center">
+                    <skill.icon className="w-8 h-8 text-primary-foreground" />
                   </div>
-                  
                   <h3 className="text-xl font-semibold mb-3">{skill.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                     {skill.description}
                   </p>
-                  
                   <div className="flex flex-wrap gap-2 justify-center">
                     {skill.technologies.map((tech) => (
-                      <span 
+                      <span
                         key={tech}
-                        className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs text-primary font-medium"
+                        className="px-3 py-1 bg-primary/10 dark:bg-primary/20 border border-primary/20 rounded-full text-xs text-primary font-medium"
                       >
                         {tech}
                       </span>
@@ -149,14 +178,65 @@ const skills = [
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <Card className="gradient-card border-primary/20 max-w-4xl mx-auto">
+          {/* WHAT I BUILD */}
+          <div className="mt-28 text-center">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              What <span className="text-gradient">I Build</span>
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Business-ready websites and systems designed for performance, usability,
+              and long-term growth.
+            </p>
+          </div>
+
+          {/* SLIDER */}
+          <div className="mt-14 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 bg-background">
+            {builds.map((item) => (
+              <div key={item.title} className="min-w-[320px] snap-start">
+                <Card
+                  className="
+                    gradient-card bg-background
+                    border border-primary/20
+                    transition-all duration-300
+                    hover:-translate-y-2 hover:shadow-xl
+                    dark:hover:shadow-black/40
+                    h-full
+                  "
+                >
+                  <CardContent className="p-6 flex flex-col h-full">
+                    <h4 className="text-xl font-semibold">{item.title}</h4>
+                    <p className="text-sm text-primary mb-3">{item.subtitle}</p>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      {item.description}
+                    </p>
+                    <div className="mt-auto flex flex-wrap gap-2">
+                      {item.highlights.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-primary/10 dark:bg-primary/20 border border-primary/20 rounded-full text-xs text-primary font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          {/* APPROACH */}
+          <div className="mt-24 text-center">
+            <Card className="gradient-card bg-background border border-primary/20 max-w-4xl mx-auto">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-gradient">My Approach</h3>
+                <h3 className="text-2xl font-bold mb-4 text-gradient">
+                  My Approach
+                </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  I like building solutions that work smoothly and look clean—whether it’s a web interface, an AI-powered feature, or a system that tackles real challenges.
-                  I’ve explored a variety of tools and technologies, and I’m always experimenting with new ones to sharpen my workflow.
-                  At the core, my goal is to create experiences that feel intuitive and genuinely useful to the people who interact with them.
+                  I build solutions that work smoothly and look clean. I work closely with
+                  clients, ask the right questions early, and tailor each build to how the
+                  business actually operates. The result is a system that is easy to use,
+                  easy to manage, and built to grow.
                 </p>
               </CardContent>
             </Card>
@@ -167,4 +247,4 @@ const skills = [
   );
 };
 
-export default AboutSection; 
+export default AboutSection;

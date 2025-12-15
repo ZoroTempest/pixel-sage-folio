@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
-import colorfulCodeBg from '@/assets/colorful-code-bg.jpg';
+
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,15 +16,6 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={colorfulCodeBg} 
-          alt="Colorful code background" 
-          className="w-full h-full object-cover opacity-15 blur-sm"
-        />
-        <div className="absolute inset-0 gradient-hero"></div>
-      </div>
         {/* 💡 Discord Gradient Layer */}
       <div className="discord-gradient"></div>
       {/* Animated Grid Background */}
@@ -50,15 +40,15 @@ const HeroSection = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-            <span className="text-gradient">Full-Stack</span>
+            <span className="text-gradient">Business Website</span>
             <br />
             <span className="text-foreground">Developer</span>
           </h1>
           
           <div className="floating">
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Crafting intelligent web applications powered by modern AI with 
-            clean architecture and stunning user experiences that drive engagement and deliver results.
+            Websites that work for your business. 
+            Fast, modern, and built to support real business growth.
             </p>
           </div>
 

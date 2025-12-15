@@ -3,8 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Database, Brain, Code, LucideIcon, Github, ExternalLink, Coffee } from "lucide-react";
-import codeMonitorBg from "@/assets/code-monitor-bg.jpg";
-
 /* ================================
    TYPES
 ================================ */
@@ -294,16 +292,6 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-20 px-6 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src={codeMonitorBg}
-          alt="background"
-          className="w-full h-full object-cover opacity-5 blur-sm"
-        />
-        <div className="absolute inset-0 bg-background/95"></div>
-      </div>
-
       <div className="max-w-6xl mx-auto relative z-10">
         <div
           className={`transition-all duration-1000 transform ${
