@@ -136,7 +136,7 @@ Here's my current toolkit:
 
 - **Web Development:** React, TypeScript, Django, FastAPI  
 - **Databases:** Firebase, MySQL, SQL Server  
-- **AI Integration:** FAISS, ChromaDB, LLM APIs (OpenAI, local models)  
+- **AI Integration:** FAISS, ChromaDB, LLM APIs (OpenAI, Claude, local models)  
 - **UI/UX:** Tailwind CSS, responsive design, accessibility best practices  
 - **DevOps:** Netlify, Docker, CI/CD, deployment optimization  
 
@@ -175,10 +175,10 @@ What else do you want to know about Justin?`;
   if (match(['experience','experiences', 'background', 'career', 'work history', 'journey', 'professional history'])) {
     return `📜 **Experience & Background**  
 
-- **AI Developer Intern** — RELX Reed Elsevier (7 months)  
-  Worked on AI-based document search, data pipelines, and automation tools.  
+- **AI Developer Analyst** — RELX Reed Elsevier   
+  Works on AI integration and process improvement for different systems.
 
-- **Full Stack & UI Development** — Group Lead for multiple academic and freelance projects.  
+- **Full Stack & UI Development** — Group Lead for multiple academic projects and freelance projects like e-commerce websites, automated ticketing websites, customized websites based on client's needs etc. 
 
 - **Academic Leadership** — Guided teams through complex web app builds, focusing on maintainability and scalability.  
 
@@ -197,7 +197,7 @@ Outside of coding:
 - 🏀 Play sports to stay fit  
 - 🧠 Constantly explore new AI tools and emerging tech trends  
 
-My mission? To integrate AI into everyday tools so they’re **simpler, smarter, and more fun** to use.`;
+My mission? To help businesses grow and make their lives easer, more proficient and more productive! Let's live optimally!!!`;
   }
 
   if (match(['education', 'school', 'study', 'degree', 'college', 'university'])) {
@@ -217,7 +217,9 @@ Things I enjoy when I’m not coding:
 - Playing basketball 🏀 and other sports  
 - Exploring the latest AI tools and APIs  
 - Coffee meetups ☕  
-- Fitness & mindfulness routines 🏋️‍♂️🧘‍♂️`;
+- Fitness & mindfulness routines 🏋️‍♂️🧘‍♂️
+- Walking my Dog 🏋️‍♂️🧘‍♂️`
+;
   }
 
   if (match(['name', 'who are you', 'your name', 'what should i call you', 'assistant name'])) {
