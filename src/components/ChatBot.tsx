@@ -218,7 +218,7 @@ Things I enjoy when I’m not coding:
 - Exploring the latest AI tools and APIs  
 - Coffee meetups ☕  
 - Fitness & mindfulness routines 🏋️‍♂️🧘‍♂️
-- Walking my Dog 🏋️‍♂️🧘‍♂️`
+- Walking my Dog 🐕`
 ;
   }
 
