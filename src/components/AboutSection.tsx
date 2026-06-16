@@ -199,11 +199,25 @@ const builds = [
           </div>
 
           {/* SLIDER */}
-          <div className="mt-14 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 bg-background">
-            {builds.map((item) => (
+          <div
+            className="
+              mt-14
+              flex gap-6
+              overflow-x-auto
+              snap-x snap-mandatory
+              pb-6
+              pr-16
+              bg-background
+            "
+          >            
+          {builds.map((item) => (
               <div
                 key={item.title}
-                className="min-w-[320px] snap-start cursor-pointer"
+                className="
+                  min-w-[85%]
+                  md:min-w-[320px]
+                  snap-start
+                  cursor-pointer"
                 onClick={() =>
                   navigate(`/sample/${encodeURIComponent(item.sampleFile)}`)
                 }
