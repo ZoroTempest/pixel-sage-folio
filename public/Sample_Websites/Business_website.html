@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrowskieDevStudio Consulting | Business Growth Solutions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#0f172a;
+    --secondary:#334155;
+    --accent:#2563eb;
+    --accent-light:#60a5fa;
+    --bg:#ffffff;
+    --card:#ffffff;
+    --border:#e5e7eb;
+    --muted:#64748b;
+    --shadow:0 20px 60px rgba(15,23,42,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--primary);
+    background:#fafafa;
+    overflow-x:hidden;
+}
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+section{
+    padding:100px 0;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.8);
+    border-bottom:1px solid rgba(0,0,0,.05);
+}
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--secondary);
+    font-weight:500;
+}
+
+.btn{
+    background:var(--accent);
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:14px;
+    font-weight:600;
+    display:inline-block;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+    padding-top:180px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:800px;
+    height:800px;
+    border-radius:50%;
+    background:radial-gradient(circle,#dbeafe 0%,transparent 70%);
+    top:-350px;
+    right:-200px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:clamp(3rem,6vw,5.5rem);
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:1.15rem;
+    color:var(--muted);
+    margin-bottom:35px;
+    max-width:600px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.secondary-btn{
+    border:1px solid var(--border);
+    background:white;
+    color:var(--primary);
+}
+
+.hero-card{
+    background:white;
+    border-radius:30px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.stat-box{
+    background:#f8fafc;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:15px;
+}
+
+.stat-box h3{
+    font-size:2rem;
+}
+
+/* TRUST BAR */
+
+.trust{
+    background:white;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:30px 0;
+}
+
+.logos{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.logo-item{
+    color:#94a3b8;
+    font-weight:700;
+    font-size:1.1rem;
+}
+
+/* SECTION TITLES */
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:var(--muted);
+    max-width:700px;
+    margin:auto;
+}
+
+/* SERVICES */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.service-card{
+    background:white;
+    border-radius:24px;
+    padding:35px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+}
+
+.icon{
+    width:65px;
+    height:65px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.7rem;
+    background:#eff6ff;
+    margin-bottom:20px;
+}
+
+.service-card h3{
+    margin-bottom:12px;
+}
+
+/* PROCESS */
+
+.process{
+    background:white;
+}
+
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    background:#f8fafc;
+    padding:30px;
+    border-radius:20px;
+    position:relative;
+}
+
+.step-number{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--accent);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* STATS */
+
+.stats{
+    background:var(--primary);
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    text-align:center;
+}
+
+.counter{
+    font-size:3rem;
+    font-weight:800;
+}
+
+/* TESTIMONIALS */
+
+.testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.testimonial{
+    background:white;
+    padding:30px;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+}
+
+.stars{
+    color:#fbbf24;
+    margin-bottom:15px;
+}
+
+.client{
+    margin-top:20px;
+    font-weight:600;
+}
+
+/* TEAM */
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.member{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.member img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.member-info{
+    padding:25px;
+}
+
+/* FAQ */
+
+.faq-item{
+    background:white;
+    margin-bottom:15px;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.faq-question{
+    padding:25px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:.3s;
+    padding:0 25px;
+    color:var(--muted);
+}
+
+.faq-item.active .faq-answer{
+    max-height:200px;
+    padding:0 25px 25px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    background:
+    radial-gradient(circle at center,#dbeafe 0%,transparent 60%);
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta p{
+    color:var(--muted);
+    max-width:700px;
+    margin:auto auto 30px;
+}
+
+/* FOOTER */
+
+footer{
+    background:var(--primary);
+    color:white;
+    padding:50px 0;
+    text-align:center;
+}
+
+/* ANIMATIONS */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:.8s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-grid,
+.services-grid,
+timeline,
+.stats-grid,
+.testimonials-grid,
+.team-grid{
+    grid-template-columns:1fr;
+}
+
+.timeline{
+    display:grid;
+    grid-template-columns:1fr;
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.hero{
+    padding-top:140px;
+}
+
+.nav-links{
+    display:none;
+}
+
+.section-title h2{
+    font-size:2.2rem;
+}
+
+.counter{
+    font-size:2.2rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<div class="logo">BrowskieDevStudio<span>.</span></div>
+
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#process">Process</a>
+<a href="#team">Team</a>
+<a href="#contact">Contact</a>
+</div>
+
+<a href="#" class="btn">Book Consultation</a>
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-grid">
+
+<div>
+<h1>Helping Businesses Scale With Confidence</h1>
+
+<p>
+We build digital experiences, growth systems, and business strategies
+that help modern companies attract customers, streamline operations,
+and increase revenue.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn">Schedule a Call</a>
+<a href="#" class="btn secondary-btn">View Case Studies</a>
+</div>
+</div>
+
+<div class="hero-card">
+
+<div class="stat-box">
+<p>Revenue Growth</p>
+<h3>+42%</h3>
+</div>
+
+<div class="stat-box">
+<p>Client Retention</p>
+<h3>89%</h3>
+</div>
+
+<div class="stat-box">
+<p>Project Success Rate</p>
+<h3>98%</h3>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="trust">
+<div class="container logos">
+<div class="logo-item">NOVA GROUP</div>
+<div class="logo-item">FUSION</div>
+<div class="logo-item">VENTURE+</div>
+<div class="logo-item">HORIZON</div>
+<div class="logo-item">ASCEND</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+
+<div class="section-title reveal">
+<h2>What We Do</h2>
+<p>Comprehensive solutions built to help businesses grow and operate more efficiently.</p>
+</div>
+
+<div class="services-grid">
+
+<div class="service-card reveal">
+<div class="icon">🚀</div>
+<h3>Growth Strategy</h3>
+<p>Position your business for sustainable long-term growth.</p>
+</div>
+
+<div class="service-card reveal">
+<div class="icon">💼</div>
+<h3>Business Consulting</h3>
+<p>Practical solutions tailored to your industry and goals.</p>
+</div>
+
+<div class="service-card reveal">
+<div class="icon">📈</div>
+<h3>Performance Analytics</h3>
+<p>Measure results and make better decisions with confidence.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="process" class="process">
+<div class="container">
+
+<div class="section-title reveal">
+<h2>Our Process</h2>
+</div>
+
+<div class="timeline">
+
+<div class="step reveal">
+<div class="step-number">1</div>
+<h3>Discovery</h3>
+<p>Understand goals, challenges, and opportunities.</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">2</div>
+<h3>Strategy</h3>
+<p>Create a roadmap for growth and execution.</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">3</div>
+<h3>Implementation</h3>
+<p>Deploy systems and optimize operations.</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">4</div>
+<h3>Scale</h3>
+<p>Track performance and continuously improve.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="stats">
+<div class="container">
+
+<div class="stats-grid">
+
+<div>
+<div class="counter" data-target="250">0</div>
+<p>Projects</p>
+</div>
+
+<div>
+<div class="counter" data-target="98">0</div>
+<p>Satisfaction</p>
+</div>
+
+<div>
+<div class="counter" data-target="15">0</div>
+<p>Years</p>
+</div>
+
+<div>
+<div class="counter" data-target="42">0</div>
+<p>Growth %</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-title reveal">
+<h2>Client Success Stories</h2>
+</div>
+
+<div class="testimonials-grid">
+
+<div class="testimonial reveal">
+<div class="stars">★★★★★</div>
+<p>Professional, strategic, and results-driven.</p>
+<div class="client">Sarah Thompson</div>
+</div>
+
+<div class="testimonial reveal">
+<div class="stars">★★★★★</div>
+<p>Our operations became significantly more efficient.</p>
+<div class="client">Michael Chen</div>
+</div>
+
+<div class="testimonial reveal">
+<div class="stars">★★★★★</div>
+<p>One of the best investments our company has made.</p>
+<div class="client">David Wilson</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="team">
+<div class="container">
+
+<div class="section-title reveal">
+<h2>Meet The Team</h2>
+</div>
+
+<div class="team-grid">
+
+<div class="member reveal">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800" alt="">
+<div class="member-info">
+<h3>Emily Carter</h3>
+<p>CEO & Founder</p>
+</div>
+</div>
+
+<div class="member reveal">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800" alt="">
+<div class="member-info">
+<h3>James Wilson</h3>
+<p>Business Strategist</p>
+</div>
+</div>
+
+<div class="member reveal">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800" alt="">
+<div class="member-info">
+<h3>Olivia Bennett</h3>
+<p>Operations Lead</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-title reveal">
+<h2>Frequently Asked Questions</h2>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">How quickly can we start?</div>
+<div class="faq-answer">
+<p>Most projects begin within one to two weeks after consultation.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Do you work with small businesses?</div>
+<div class="faq-answer">
+<p>Yes. We work with startups, SMEs, and enterprise organizations.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Can solutions be customized?</div>
+<div class="faq-answer">
+<p>Every engagement is tailored to business goals and requirements.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="cta" id="contact">
+<div class="container">
+
+<h2>Ready To Grow?</h2>
+
+<p>
+Let's discuss your goals and create a roadmap for measurable business growth.
+</p>
+
+<a href="#" class="btn">Book Your Consultation</a>
+
+</div>
+</section>
+
+<footer>
+© 2026 BrowskieDevStudio Consulting. All Rights Reserved.
+</footer>
+
+<script>
+
+// Reveal animation
+const reveals = document.querySelectorAll('.reveal');
+
+function revealElements(){
+    reveals.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll',revealElements);
+revealElements();
+
+// Counters
+const counters = document.querySelectorAll('.counter');
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+
+            const counter = entry.target;
+            const target = +counter.dataset.target;
+            let count = 0;
+
+            const update = ()=>{
+                count += Math.ceil(target/50);
+
+                if(count < target){
+                    counter.innerText = count;
+                    requestAnimationFrame(update);
+                }else{
+                    counter.innerText = target;
+                }
+            };
+
+            update();
+            observer.unobserve(counter);
+        }
+    });
+});
+
+counters.forEach(c=>observer.observe(c));
+
+// FAQ
+document.querySelectorAll('.faq-question').forEach(question=>{
+    question.addEventListener('click',()=>{
+        question.parentElement.classList.toggle('active');
+    });
+});
+
+</script>
+
+</body>
+</html>

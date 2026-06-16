@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Code, Database, Brain, Zap, Briefcase } from 'lucide-react';
 import JustinImage from '@/assets/Justin.jpg';
+import { useNavigate } from 'react-router-dom';
+
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (window.innerWidth < 768) {
@@ -40,7 +44,7 @@ const AboutSection = () => {
       icon: Zap,
       title: 'Frontend & UX',
       description: 'Clean, responsive UI built for speed, usability, and customer trust.',
-      technologies: ['Tailwind CSS', 'React', 'Responsive Design', 'UI/UX'],
+      technologies: ['Tailwind CSS', 'React', 'Responsive Design', 'UI/UX', 'Wordpress'],
     },
     {
       icon: Database,
@@ -58,47 +62,52 @@ const AboutSection = () => {
     },
   ];
 
-  const builds = [
-    {
-      title: 'Business Websites',
-      subtitle: 'Professional, conversion-focused presence',
-      description:
-        'Custom-built websites that establish credibility, communicate value clearly, and attract customers.',
-      highlights: ['Mobile-first', 'SEO-ready', 'Fast loading'],
-    },
-    {
-      title: 'E-Commerce Websites',
-      subtitle: 'Built to sell, easy to manage',
-      description:
-        'Conversion-focused online stores designed for smooth shopping, simple product management, and reliable performance.',
-      highlights: [
-        'Product & inventory management',
-        'Secure checkout',
-        'Mobile-optimized shopping',
-      ],
-    },
-    {
-      title: 'Booking & Inquiry Systems',
-      subtitle: 'Turn visitors into customers',
-      description:
-        'Integrated booking flows, inquiry forms, and admin dashboards that support daily operations.',
-      highlights: ['Custom logic', 'Admin dashboards', 'Email notifications'],
-    },
-    {
-      title: 'Internal Tools & Dashboards',
-      subtitle: 'Support real workflows',
-      description:
-        'Internal systems that help teams manage data, workflows, and reporting efficiently.',
-      highlights: ['Clean UI', 'Role-based access', 'Scalable backend'],
-    },
-    {
-      title: 'Automation & Smart Features',
-      subtitle: 'Reduce manual work',
-      description:
-        'Optional automations and intelligent features that improve efficiency where they add real value.',
-      highlights: ['Workflow automation', 'AI integrations', 'Custom logic'],
-    },
-  ];
+const builds = [
+  {
+    title: 'Business Websites',
+    subtitle: 'Professional, conversion-focused presence',
+    description:
+      'Custom-built websites that establish credibility, communicate value clearly, and attract customers.',
+    highlights: ['Mobile-first', 'SEO-ready', 'Fast loading'],
+    sampleFile: 'Business_website.html',
+  },
+  {
+    title: 'E-Commerce Websites',
+    subtitle: 'Built to sell, easy to manage',
+    description:
+      'Conversion-focused online stores designed for smooth shopping, simple product management, and reliable performance.',
+    highlights: [
+      'Product & inventory management',
+      'Secure checkout',
+      'Mobile-optimized shopping',
+    ],
+    sampleFile: 'E-commerce_website.html',
+  },
+  {
+    title: 'Booking & Inquiry Systems',
+    subtitle: 'Turn visitors into customers',
+    description:
+      'Integrated booking flows, inquiry forms, and admin dashboards that support daily operations.',
+    highlights: ['Custom logic', 'Admin dashboards', 'Email notifications'],
+    sampleFile: 'Booking_website.html',
+  },
+  {
+    title: 'Internal Tools & Dashboards',
+    subtitle: 'Support real workflows',
+    description:
+      'Internal systems that help teams manage data, workflows, and reporting efficiently.',
+    highlights: ['Clean UI', 'Role-based access', 'Scalable backend'],
+    sampleFile: 'Dashboard_website.html',
+  },
+  {
+    title: 'Automation & Smart Features',
+    subtitle: 'Reduce manual work',
+    description:
+      'Optional automations and intelligent features that improve efficiency where they add real value.',
+    highlights: ['Workflow automation', 'AI integrations', 'Custom logic'],
+    sampleFile: 'Automation_smart_website.html',
+  },
+];
 
   return (
     <section id="about" className="py-20 px-6 relative overflow-hidden bg-background">
@@ -192,7 +201,13 @@ const AboutSection = () => {
           {/* SLIDER */}
           <div className="mt-14 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 bg-background">
             {builds.map((item) => (
-              <div key={item.title} className="min-w-[320px] snap-start">
+              <div
+                key={item.title}
+                className="min-w-[320px] snap-start cursor-pointer"
+                onClick={() =>
+                  navigate(`/sample/${encodeURIComponent(item.sampleFile)}`)
+                }
+              >
                 <Card
                   className="
                     gradient-card bg-background
@@ -209,6 +224,7 @@ const AboutSection = () => {
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                       {item.description}
                     </p>
+
                     <div className="mt-auto flex flex-wrap gap-2">
                       {item.highlights.map((tag) => (
                         <span
@@ -218,6 +234,29 @@ const AboutSection = () => {
                           {tag}
                         </span>
                       ))}
+                    </div>
+
+                    <div className="mt-5">
+                      <div
+                        className="
+                          inline-flex items-center gap-2
+                          px-4 py-2
+                          rounded-full
+                          bg-gradient-to-r
+                          from-primary
+                          to-primary/70
+                          text-primary-foreground
+                          font-medium
+                          text-sm
+                          shadow-lg
+                          shadow-primary/20
+                          transition-all duration-300
+                          group-hover:scale-105
+                        "
+                      >
+                        <span>View Live Sample</span>
+                        <span>→</span>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
