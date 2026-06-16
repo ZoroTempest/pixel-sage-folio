@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BrowskieDevStudio</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--navy:#103c5a;
+--teal:#1fb6aa;
+--sky:#dff7f5;
+--mint:#eefcf9;
+--accent:#4f7cff;
+--white:#fff;
+--text:#163042;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Manrope,sans-serif;color:var(--text);background:linear-gradient(180deg,#f8ffff,#eef8ff);scroll-behavior:smooth}
+.container{width:min(1200px,92%);margin:auto}
+header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.75);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-weight:800;font-size:1.4rem;color:var(--navy)}
+.links{display:flex;gap:24px}
+.links a{text-decoration:none;color:var(--text)}
+.btn{background:linear-gradient(135deg,var(--teal),var(--accent));color:white;padding:14px 22px;border-radius:14px;text-decoration:none;border:none;cursor:pointer}
+.hero{padding:90px 0}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.hero-card,.glass{background:rgba(255,255,255,.65);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.5);border-radius:28px}
+.hero-card{padding:50px}
+h1{font-size:4rem;line-height:1.05}
+.hero p{margin:18px 0 28px;color:#537082}
+.hero-side{padding:30px}
+section{padding:80px 0}
+h2{text-align:center;font-size:2.3rem;margin-bottom:15px}
+.sub{text-align:center;color:#678}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.card{background:white;border-radius:24px;padding:28px;box-shadow:0 10px 40px rgba(16,60,90,.08)}
+.doctor img{width:100%;border-radius:18px;height:240px;object-fit:cover}
+.services .card:hover,.doctor:hover{transform:translateY(-6px)}
+.doctor{transition:.3s}
+.booking{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:40px}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day{background:white;padding:14px;border-radius:12px;text-align:center;cursor:pointer}
+.day.active{background:var(--teal);color:white}
+.slots{display:flex;flex-wrap:wrap;gap:10px}
+.slot{padding:10px 14px;border-radius:10px;background:#eef7ff;cursor:pointer}
+.portal{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.portal .card h3{margin-bottom:10px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.map{min-height:350px;background:linear-gradient(135deg,var(--navy),var(--teal));border-radius:24px}
+input,select,textarea{width:100%;padding:14px;margin:8px 0;border:1px solid #dce7ef;border-radius:12px}
+footer{background:var(--navy);color:white;padding:50px 0;margin-top:60px;text-align:center}
+.fade{opacity:0;transform:translateY(30px);transition:1s}
+.fade.show{opacity:1;transform:none}
+@media(max-width:900px){
+.hero-grid,.booking,.contact{grid-template-columns:1fr}
+.grid-3,.portal{grid-template-columns:1fr 1fr}
+h1{font-size:3rem}
+}
+@media(max-width:640px){
+.links{display:none}
+.grid-3,.portal{grid-template-columns:1fr}
+h1{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+<header><div class="container"><nav><div class="logo">BrowskieDevStudio</div><div class="links"><a href="#doctors">Doctors</a><a href="#services">Services</a><a href="#portal">Portal</a><a href="#contact">Contact</a></div><a class="btn" href="#booking">Book Appointment</a></nav></div></header>
+
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-card">
+<h1>Healthcare Designed Around You.</h1>
+<p>Modern medical care with same-day appointments, specialist consultations, digital records, and patient-first experiences.</p>
+<a class="btn" href="#booking">Schedule Appointment</a>
+</div>
+<div class="hero-side glass">
+<h3>Emergency Contact</h3><br>
+<h2 style="text-align:left;color:var(--accent)">+1 (800) 555-CARE</h2>
+<p>24/7 urgent support and emergency assistance.</p>
+</div>
+</div>
+</section>
+
+<section id="doctors" class="fade">
+<div class="container">
+<h2>Meet Our Specialists</h2><p class="sub">Experienced healthcare professionals.</p>
+<div class="grid-3">
+<div class="doctor card"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800"><h3>Dr. Sarah Chen</h3><p>Cardiology</p><small>Available Mon–Fri</small></div>
+<div class="doctor card"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800"><h3>Dr. Michael Ross</h3><p>Pediatrics</p><small>Available Daily</small></div>
+<div class="doctor card"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=800"><h3>Dr. Emma Patel</h3><p>Dermatology</p><small>Available Tue–Sat</small></div>
+</div>
+</div>
+</section>
+
+<section id="services" class="services fade">
+<div class="container">
+<h2>Medical Services</h2>
+<div class="grid-3">
+<div class="card"><h3>Primary Care</h3><p>Routine checkups and preventive care.</p></div>
+<div class="card"><h3>Cardiology</h3><p>Heart health and diagnostics.</p></div>
+<div class="card"><h3>Laboratory</h3><p>Advanced testing and reports.</p></div>
+<div class="card"><h3>Dermatology</h3><p>Skin treatments and consultations.</p></div>
+<div class="card"><h3>Pediatrics</h3><p>Care for infants and children.</p></div>
+<div class="card"><h3>Telehealth</h3><p>Virtual consultations anywhere.</p></div>
+</div>
+</div>
+</section>
+
+<section id="booking" class="fade">
+<div class="container">
+<h2>Appointment Booking</h2>
+<div class="booking">
+<div class="card">
+<h3>Select a Date</h3><br>
+<div class="calendar" id="calendar"></div>
+</div>
+<div class="card">
+<h3>Schedule Details</h3>
+<select><option>Choose Doctor</option><option>Dr. Sarah Chen</option><option>Dr. Michael Ross</option></select>
+<br><br><h4>Available Time Slots</h4><br>
+<div class="slots">
+<div class="slot">09:00 AM</div><div class="slot">10:00 AM</div><div class="slot">11:30 AM</div>
+<div class="slot">01:00 PM</div><div class="slot">03:30 PM</div>
+</div><br>
+<button class="btn" onclick="confirmBooking()">Confirm Appointment</button>
+<p id="confirm"></p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="fade">
+<div class="container">
+<h2>Patient Testimonials</h2>
+<div class="grid-3">
+<div class="card">★★★★★<br><br>Fast scheduling and outstanding care.</div>
+<div class="card">★★★★★<br><br>Beautiful clinic and excellent staff.</div>
+<div class="card">★★★★★<br><br>The patient portal is incredibly convenient.</div>
+</div>
+</div>
+</section>
+
+<section class="fade">
+<div class="container">
+<h2>Insurance Partners</h2>
+<div class="grid-3">
+<div class="card">BlueCross</div><div class="card">Aetna</div><div class="card">UnitedHealth</div>
+</div>
+</div>
+</section>
+
+<section id="portal" class="fade">
+<div class="container">
+<h2>Patient Portal</h2>
+<div class="portal">
+<div class="card"><h3>Upcoming</h3><p>2 scheduled appointments.</p></div>
+<div class="card"><h3>Medical Records</h3><p>Lab results & reports.</p></div>
+<div class="card"><h3>Messages</h3><p>Secure physician messaging.</p></div>
+<div class="card"><h3>Billing</h3><p>Invoices and payments.</p></div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="fade">
+<div class="container contact">
+<div class="map"></div>
+<div class="card">
+<h3>Contact Us</h3>
+<input placeholder="Full Name">
+<input placeholder="Email Address">
+<textarea rows="5" placeholder="Message"></textarea>
+<button class="btn">Send Inquiry</button>
+</div>
+</div>
+</section>
+
+<footer>
+<h3>BrowskieDevStudio</h3>
+<p>Modern healthcare. Compassionate care. Digital convenience.</p>
+</footer>
+
+<script>
+const cal=document.getElementById('calendar');
+for(let i=1;i<=30;i++){
+ let d=document.createElement('div');
+ d.className='day'; d.innerText=i;
+ d.onclick=()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));d.classList.add('active');}
+ cal.appendChild(d);
+}
+function confirmBooking(){
+document.getElementById('confirm').innerHTML="<br><strong>✓ Appointment Request Submitted</strong>";
+}
+const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('show')));
+document.querySelectorAll('.fade').forEach(x=>io.observe(x));
+</script>
+</body>
+</html>

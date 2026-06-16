@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
-import colorfulCodeBg from '@/assets/colorful-code-bg.jpg';
+
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,16 +16,8 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={colorfulCodeBg} 
-          alt="Colorful code background" 
-          className="w-full h-full object-cover opacity-15 blur-sm"
-        />
-        <div className="absolute inset-0 gradient-hero"></div>
-      </div>
-
+        {/* 💡 Discord Gradient Layer */}
+      <div className="discord-gradient"></div>
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="grid grid-cols-12 gap-4 h-full animate-pulse">
@@ -49,15 +40,15 @@ const HeroSection = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-            <span className="text-gradient">Full-Stack</span>
+            <span className="text-gradient">Business Website</span>
             <br />
             <span className="text-foreground">Developer</span>
           </h1>
           
           <div className="floating">
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Crafting intelligent web applications with modern AI integration, 
-              clean architecture, and stunning user experiences.
+            Websites that work for your business. 
+            Fast, modern, and built to support real business growth.
             </p>
           </div>
 
@@ -80,30 +71,28 @@ const HeroSection = () => {
           </div>
 
           <div className="flex justify-center space-x-6">
+          <a 
+            href="https://www.linkedin.com/in/justin-bulot-0765b7334/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
+          >
+            <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
+          </a>
+
             <a 
-              href="#" 
-              className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
-            >
-              <Github className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
-            </a>
-            <a 
-              href="#" 
-              className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
-            >
-              <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
-            </a>
-            <a 
-              href="#" 
+              href="mailto:justinbulot@outlook.com" 
               className="p-3 border border-primary/30 rounded-full hover:border-primary hover:shadow-glow transition-smooth hover:scale-110 group"
             >
               <Mail className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth" />
             </a>
+
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-[calc(50%-21px)] transform -translate-x-1/2 animate-bounce">
         <button
           onClick={() => scrollToSection('about')}
           className="p-2 rounded-full border border-primary/30 hover:border-primary transition-smooth"
